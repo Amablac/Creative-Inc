@@ -17,6 +17,7 @@ img{
 
 .container{
  width: 95%;
+ max-width: 70em;
  margin: 0 auto;
 }
 
@@ -32,15 +33,54 @@ font-weight: 300;
 font-size: .9em;
 }
 
+.home-desc {
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 1.6rem;
+    margin-top: 0;
+}
+
+.home-about-textbox{
+font-size: 1rem;
+}
+
+
+@media(min-width:60rem){
+    .title{
+        font-size: 4rem;
+    }
+}
 .button{
     font-size: 1.5rem;
     text-decoration: none;
+    border-width: 2px;
+    border-style: solid;
+    text-transform: uppercase;
+    padding: 0.5rem 1.75rem;
+    display: inline-block;
 }
+.button-accent{
+    color:#00FF70;
+    border-color: #00FF70;
+}
+
+.button-accent:hover,
+.button-accent:focus{
+    background-color: #00FF70;
+    color: #009440 ;
+}
+
+@media(min-width:60rem) {
+    .button {
+        font-size: 1.5rem;
+    }
+}
+
 
 /*------header
 ---------------------*/
 header{
-    margin-top: 1em;
+    margin: 1em;
     position: absolute;
     left: 0;
     right: 0;
@@ -69,6 +109,15 @@ nav a:focus{
     color: #ddd;
 }
 
+@media(min-width:60rem) {
+    .logo{
+        float: left;
+    }
+
+    nav{
+        float: right;
+    }
+}
 
 /*------home-hero
 ---------------------*/
@@ -79,6 +128,66 @@ nav a:focus{
     url(img/hero-bg.jpg);
     padding: 10em 0;
     color: #fff;
-    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     
+}
+
+@media(min-width:60rem) {
+    .home-hero {
+        height: 100vh;
+        padding: 30vh;
+    }
+    
+}
+
+/*------home-about
+---------------------*/
+.home-about-textbox{
+background: #232323;
+color: #fff;
+padding: 4em;
+width: 100vw;
+margin-left: -2.6%;
+outline: 2px solid#00FF70;
+outline-offset: -2.75em;
+position: relative;
+}
+.home-desc{
+    color: #00FF70;
+    position: absolute;
+    top: 1.08em;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0 .25em;
+    background: #232323;
+    
+}
+@media(min-width: 29.6875rem){
+.home-desc{
+    font-size: 2rem;
+    top: .75em;
+    padding: 0 .325em;
+}
+}
+
+@media(min-width: 60rem) {
+    .home-desc {
+        font-size: 2.5rem;
+        top: .4em;
+        left: 6rem;
+        transform: translateX(0);    }
+
+        .home-about {
+            background-image: url(img/who-we-are.jpg);
+            padding-bottom: 15em;
+            background-repeat: no-repeat;
+        }
+        .home-about-textbox {
+            width: 60%;
+            margin-left: -2.6%;
+           text-align: left;
+           top: -5em;
+           
+        }
 }
