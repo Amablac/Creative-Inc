@@ -3,6 +3,7 @@ url('https://fonts.googleapis.com/css?family=Raleway:300,400,700,900');
 
 *{
     box-sizing: border-box;
+    transition: all ease-in-out 250ms;
 }
 
 body{
@@ -21,8 +22,93 @@ img{
  margin: 0 auto;
 }
 
+.clearfix::after,
+section::after,
+footer::after{
+    content:'';
+    display: block;
+    clear: both;
+
+}
+
+
+
+/*-----column system
+------*/
+
+
+[class^=col-] {
+    width: 100%;
+    margin-top: 1em;
+}
+
+
+
+[class^=col-]:first-child {
+    margin-top: 0;
+}
+
+.col-1{
+    width: 33.333334%;
+    float: left;
+}
+
+@media (min-width:40rem) {
+   [class^=col-] {
+        float: left;
+        padding: 0 .5em;
+    }
+
+
+    [class^=col-]:first-child{
+        padding: 0;
+    }
+
+
+
+    [class^=col-]:last-child {
+        padding: 0;
+    }
+
+
+    .col-3 {
+        width: 50%;
+    }
+
+
+    .col-1{
+        width:16.6666%;
+    }
+}
+
+
+
+@media (min-width:60rem) {
+    .container {
+            max-width: 74em;
+            
+    }
+
+
+    .home-about-textbox {
+            max-width: 35em;
+    }
+}
+
+
+
 /*-----typography
 ------*/
+
+p{
+    margin-top: 0;
+    line-height: 1.5;
+}
+
+p:last-of-type {
+margin-bottom: 0;
+}
+
 .title{
     font-size: 2.5em;
 }
@@ -31,6 +117,24 @@ img{
 display: block;
 font-weight: 300;
 font-size: .9em;
+}
+
+.cta {
+    font-size: 2.5em;
+}
+
+.cta span {
+    display: block;
+    font-weight: 300;
+    font-size: .9em;
+}
+.cta-title {
+    margin: 0 0 .5em;
+}
+.unstyled-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 .home-desc {
@@ -47,9 +151,13 @@ font-size: 1rem;
 
 @media(min-width:60rem){
     .title{
-        font-size: 4rem;
+        font-size: 3.6rem;
     }
 }
+
+/*-----button
+----------------*/
+
 .button{
     font-size: 1.5rem;
     text-decoration: none;
@@ -59,6 +167,19 @@ font-size: 1rem;
     padding: 0.5rem 1.75rem;
     display: inline-block;
 }
+
+@media(min-width:60rem) {
+    .button {
+        font-size: 1.5rem;
+    }
+}
+
+.button-small{
+font-size: .7rem;
+font-weight: 700;
+
+}
+
 .button-accent{
     color:#00FF70;
     border-color: #00FF70;
@@ -70,15 +191,24 @@ font-size: 1rem;
     color: #009440 ;
 }
 
-@media(min-width:60rem) {
-    .button {
-        font-size: 1.5rem;
-    }
+.button-black {
+    color: #232323;
+    border-color: #232323;
+    
 }
+
+.button-black:hover,
+.button-black:focus {
+    background-color: #232323;
+    color: #009440;
+}
+
 
 
 /*------header
 ---------------------*/
+
+
 header{
     margin: 1em;
     position: absolute;
@@ -109,6 +239,8 @@ nav a:focus{
     color: #ddd;
 }
 
+
+
 @media(min-width:60rem) {
     .logo{
         float: left;
@@ -119,8 +251,12 @@ nav a:focus{
     }
 }
 
+
+
+
 /*------home-hero
 ---------------------*/
+
 
 .home-hero{
     font-weight: 700;
@@ -141,17 +277,23 @@ nav a:focus{
     
 }
 
+
+
+
+
 /*------home-about
 ---------------------*/
+
+
 .home-about-textbox{
-background: #232323;
-color: #fff;
-padding: 4em;
-width: 100vw;
-margin-left: -2.6%;
-outline: 2px solid#00FF70;
-outline-offset: -2.75em;
-position: relative;
+    background: #232323;
+    color: #fff;
+    padding: 4em;
+    width: 100vw;
+    margin-left: -2.6%;
+    outline: 2px solid#00FF70;
+    outline-offset: -2.75em;
+    position: relative;
 }
 .home-desc{
     color: #00FF70;
@@ -161,6 +303,7 @@ position: relative;
     transform: translateX(-50%);
     padding: 0 .25em;
     background: #232323;
+    letter-spacing: -0.05em;
     
 }
 @media(min-width: 29.6875rem){
@@ -174,20 +317,132 @@ position: relative;
 @media(min-width: 60rem) {
     .home-desc {
         font-size: 2.5rem;
-        top: .4em;
+        top: .9em;
         left: 6rem;
-        transform: translateX(0);    }
+        transform: translateX(0);    
+    }
 
-        .home-about {
-            background-image: url(img/who-we-are.jpg);
-            padding-bottom: 15em;
-            background-repeat: no-repeat;
-        }
-        .home-about-textbox {
-            width: 60%;
-            margin-left: -2.6%;
-           text-align: left;
-           top: -5em;
+    .home-about {
+        background-image: url(img/who-we-are.jpg);
+        padding-bottom: 10em;
+        background-repeat: no-repeat;  
+        background-size: cover;
+        margin-bottom: 4em;
            
+    
+    }
+    .home-about-textbox {
+        width: 60%;
+        margin-left: -2.6%;
+        text-align: left;
+        top: -5em;
+        padding:7em;
+        outline-offset: -3.75em;
+        box-shadow: 0 0 3em 0 rgba(0, 0, 0, .3);
+    }
+}
+
+
+
+
+/*------portfolio
+---------------------*/
+
+.portfolio{
+margin: 2em 0 0;
+    
+}
+
+.port-project{
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 1.4rem;
+    padding-top:.6em;
+    margin-top: 1.5em;
+    position: relative;
+    
+}
+.overline{
+    background: #00FF70;
+    color: #fff;
+    padding: 0.2px;
+    max-width: 50px;
+    position: absolute;
+    left: 12em;
+    right: 12em;
+    margin: auto;
+}
+
+.port-item {
+    margin: 0;
+    position: relative;
+}
+
+.port-item img {
+    display: block;
+}
+
+
+.port-desc{
+position: absolute;
+z-index: 100;
+bottom: 2em;
+left: 3em;
+right: 3em;
+color: #fff;
+background: rgba(0, 0, 0, .6);
+padding-bottom: 1em;
+}
+.port-desc p {
+    margin: 1em;
+}
+
+@media(min-width: 37rem){
+.port-item {
+    width: 50%;
+    float: left;
+}
+
+.port-project{
+    font-size: 2rem;
+}
+}
+@media(min-width: 60rem) {
+    .port-item {
+        width: 33.3333334%;
+        overflow: hidden;
+    
+    }
+    .port-desc{
+        transform: translateY(150%);
+    }
+   .port-item:hover .port-desc {
+        transform: translateY(0%);
+        left: 0em;
+        right: 0em;
+        bottom: 0em;
+    }
+
+        .port-project {
+            font-size: 2.4rem;
         }
+}
+
+
+/*------cta
+---------------------*/
+.cta{
+    background-color: #00FF70;
+    padding: 4em 0;
+    color: #fffefe;
+}
+
+
+/*------footer
+---------------------*/
+footer{
+    background-color: #232323;
+    color: #fff;
+    text-align: left;
+    padding: 5em 0;
 }
